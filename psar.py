@@ -13,7 +13,13 @@ class PSAR:
         self.init_af = init_af
         self.max_af = max_af
         self.af_step = af_step
-        self.af = init_af
+        self.reset()
+
+    def reset(self):
+        """
+        Resets all internal states and lists used for calculation.
+        """
+        self.af = self.init_af
         self.extreme_point = None
         self.high_price_trend = []
         self.low_price_trend = []
@@ -41,7 +47,6 @@ class PSAR:
         if len(self.low_price_window) <= 1:
             self.trend = None
             self.extreme_point = high
-            self.trend_list.append(None)
             return None
 
         if self.high_price_window[0] < self.high_price_window[1]:
@@ -139,17 +144,19 @@ class PSAR:
 
         return psar
 
-    def calc_psar(self, high, low):
+    def __calc_psar(self, high, low):
         """
         Calculates the PSAR value based on high and low prices.
 
         Parameters:
             high (float): High price for the current period.
             low (float): Low price for the current period.
+            reset (bool): If True, reset the internal state before calculation.
 
         Returns:
             float: Calculated PSAR value.
         """
+        
         if self._num_periods >= 3:
             psar = self.__calc_psar_val()
         else:
@@ -159,3 +166,19 @@ class PSAR:
         self._num_periods += 1
 
         return psar
+    def calc_psar_batch(self, highs, lows):
+        """
+        Calculate PSAR values for a batch of high and low prices.
+
+        Parameters:
+            highs (list): List of high prices.
+            lows (list): List of low prices.
+
+        Returns:
+            list: List of calculated PSAR values.
+        """
+        self.reset()
+        psar_values = []
+        for high, low in zip(highs, lows):
+            psar_values.append(self.__calc_psar(high, low))
+        return psar_values
