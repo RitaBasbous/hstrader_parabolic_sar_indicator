@@ -2,8 +2,7 @@
 
 ![psar plot](img/psar.png)
 
-This Python script visualizes the Parabolic SAR (PSAR) using both real-time and historical market data. The Parabolic SAR is a trend-following indicator developed by J. Welles Wilder Jr., primarily used to identify potential reversals in the market.
-
+This Python script visualizes the Parabolic SAR (PSAR) using both real-time and historical market data.
 ## Prerequisites
 
 Ensure you have the requirements file installed.
@@ -25,7 +24,7 @@ CLIENT_SECRET=your_client_secret
 
 These variables enable secure access to market data from the [HSTRADER](https://staging.hstrader.com/login) platform.
 
-**Reminder:**
+**Note:**
 Your unique `CLIENT_ID` and `CLIENT_SECRET` can be obtained from your personal account on the platform. Ensure you keep them confidential to protect your data.
 
 ### Parabolic SAR
@@ -50,21 +49,3 @@ The SAR was devised by famed trader Welles Wilder in his classic 1978 book on tr
 4. **Calculation Steps:**
    Check out the flow chart below to get an overview of the procedure:
    ![sar calculation flowchart](img/sar_calculation_flowchart.png)
-
-### Why Use Parabolic SAR?
-
-1. **Identifying Trend Reversals:**
-   - Helps traders identify potential points where the trend may reverse.
-
-2. **Trailing Stop-Loss:**
-   - Can be used to set trailing stop-loss orders to lock in profits.
-
-3. **Clear Signals:**
-   - Provides clear buy or sell signals based on the trend direction.
-
-4. **Combines Well with Other Tools:**
-   - Can be used in conjunction with other technical analysis tools for better decision-making.
-
-## Conclusion
-
-The Parabolic SAR is a powerful tool for technical analysis, offering traders a method to identify potential trend reversals. Its ability to provide clear signals for buy or sell decisions makes it an invaluable indicator for both novice and experienced traders.
