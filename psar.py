@@ -151,7 +151,7 @@ class PSAR:
         Parameters:
             high (float): High price for the current period.
             low (float): Low price for the current period.
-            reset (bool): If True, reset the internal state before calculation.
+            
 
         Returns:
             float: Calculated PSAR value.
